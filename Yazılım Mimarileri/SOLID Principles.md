@@ -15,7 +15,8 @@ Basit bir örnek vermek gerekirse, günlük hayatımızda sürekli karşılaşt�
 Loose Coupling, sınıfların veya modüllerin birbirlerine minimum düzeyde bağımlı olması durumudur. Bu tür bağlantı, yazılımın esnekliğini ve sürdürülebilirliğini artırır. Gevşek bağlı bileşenler arasında değişiklik yapmak daha kolaydır ve bileşenler daha bağımsız bir şekilde çalışabilir. Sıkı bağımlılıkların azaltılması için interfaceler ya da abstract sınıflar kullanılır. Bu sayede sürücü tek bir araç kullanmak yerine birden çok araç kullanabilir hale gelmektedir. 
 
 <h3>SOLID Konu Başlıkları</h3>
-- <a href="#">Single Responsibility​ Principle </a>
+- <a href="#single-responsibility-principle">Single Responsibility​ Principle </a> <br>
+- <a href="#openclosed-principle">Open/Closed Principle  </a>
 
 
 ## Single Responsibility​ Principle
@@ -23,3 +24,9 @@ Single Responsibility Principle, OOP tasarımlarında bir sınıfı mümkün mer
 Bir sınıfın, değiştirilmesi gereken birden fazla sebebi veya gerekçesi varsa işte bu durum ilgili sınıfın birden fazla sorumluluğu olduğu anlamına gelmektedir. <br> <br>
 Yani SRP nin asıl savunduğu prensip  <strong>"Bir sınıfın değişmesi için yalnızca tek bir nedeni olması gerekmektedir."</strong> cümlesidir. <br><br>
 Bir sınıf veya metot, işlevsel olarak birden fazla işi/operasyonu yürütüyorsa yani bir başka deyişle birden fazla sorumluluğu varsa bu istenmeyen bir durumdur. Günlük hayatta bir insan aynı anda birden fazla iş yükünü nasıl kaldıramıyorsa, kaldırmaya çalışssa da beklenen verim alınamıyorsa, ürettiğimiz kodlarımızda da birden fazla sorumluluğun tek bir yapıda toplanması doğru bir çalışma olmayacaktır. Ayrıca her yeni yapılanma için yeniden test ve bakım maliyetleri de haddinden fazla artacaktır.
+
+## Open/Closed Principle 
+Open Closed Principle, OOP tasarımlarında bir sınıfın gereksinimler doğrultusunda değiştirmeye gerek duyulmaksızın, genişletilebilir bir şekilde tasarlanmasını savunan bir prensiptir. <br>
+<strong>Bir kod; genişletilmeye açık, değişime kapalı olduğu taktirde ideal koddur!</strong> <br> <br>
+
+Open Closed Principle koda <strong> sürdürülebilirlik, genişletilebilirlik, yeniden kullanılabilirlik ve esneklik</strong> kazandırır. Böylece kodun gelen yeni gereksinimlere göre değişiklik direncini kıracak ve geliştiriciyi bu değişiklik süreçlerindeki maliyetlerin getirdği yığınlardan soyutlayacaktır.
