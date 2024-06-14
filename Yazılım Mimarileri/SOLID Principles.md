@@ -15,8 +15,9 @@ Basit bir örnek vermek gerekirse, günlük hayatımızda sürekli karşılaşt�
 Loose Coupling, sınıfların veya modüllerin birbirlerine minimum düzeyde bağımlı olması durumudur. Bu tür bağlantı, yazılımın esnekliğini ve sürdürülebilirliğini artırır. Gevşek bağlı bileşenler arasında değişiklik yapmak daha kolaydır ve bileşenler daha bağımsız bir şekilde çalışabilir. Sıkı bağımlılıkların azaltılması için interfaceler ya da abstract sınıflar kullanılır. Bu sayede sürücü tek bir araç kullanmak yerine birden çok araç kullanabilir hale gelmektedir. 
 
 <h3>SOLID Konu Başlıkları</h3>
-- <a href="#single-responsibility-principle">Single Responsibility​ Principle </a> <br>
-- <a href="#openclosed-principle">Open/Closed Principle  </a>
+- <a href="#single-responsibility-principle">Single Responsibility​ Principle</a> <br>
+- <a href="#openclosed-principle">Open/Closed Principle</a> <br>
+- <a href="#liskov-substitution-principle">Liskov Substitution Principle</a>
 
 
 ## Single Responsibility​ Principle
@@ -27,6 +28,14 @@ Bir sınıf veya metot, işlevsel olarak birden fazla işi/operasyonu yürütüy
 
 ## Open/Closed Principle 
 Open Closed Principle, OOP tasarımlarında bir sınıfın gereksinimler doğrultusunda değiştirmeye gerek duyulmaksızın, genişletilebilir bir şekilde tasarlanmasını savunan bir prensiptir. <br>
-<strong>Bir kod; genişletilmeye açık, değişime kapalı olduğu taktirde ideal koddur!</strong> <br> <br>
+<strong>Bir kod; genişletilmeye açık, değişime kapalı olduğu taktirde ideal koddur!</strong> <br> 
 
 Open Closed Principle koda <strong> sürdürülebilirlik, genişletilebilirlik, yeniden kullanılabilirlik ve esneklik</strong> kazandırır. Böylece kodun gelen yeni gereksinimlere göre değişiklik direncini kıracak ve geliştiriciyi bu değişiklik süreçlerindeki maliyetlerin getirdği yığınlardan soyutlayacaktır.
+
+## Liskov Substitution Principle
+Liskov Substitution Principle, ortak bir referanstan türeyen nesnelerin hiçbir şeyi bozulmadan birbirleriyle değiştirilebilmesi gerektiğini yani birbirlerinin yerine geçebilmesi gerektiğini öneren bir prensiptir. 
+
+Eğer bir sınıf, herhangi bir interface yahut abstract class ile sözleşme yapıyorsa o zaman bu sözleşmeyi karşılamalı ve gerekli tüm memberları içerisinde tanımlamalıdır. Lakin bu memberlardan boş ve işlevsiz olanlar varsa işte orada bir problem var demektir. <br>
+Hiçbir alt sınıf uygulamış olduğu base class'ın metotlarını ihlal etmemelidir. Yani implement yahut override edilen hiçbir metot boş kalmamalı veya boş kalmasın diye Not Implemented Exception gibi hatalar döndürülmemelidir.
+
+Yani LPS bize şunu söylemektedir; <strong>Ortak referanstan türeyen nesneler herhangi bir davranış değişikliğine gerek duyulmaksızın birbirlerinin yerine geçebilmelidirler.</strong>
