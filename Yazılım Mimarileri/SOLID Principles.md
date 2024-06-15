@@ -18,7 +18,8 @@ Loose Coupling, sınıfların veya modüllerin birbirlerine minimum düzeyde ba�
 - <a href="#single-responsibility-principle">Single Responsibility​ Principle</a> <br>
 - <a href="#openclosed-principle">Open/Closed Principle</a> <br>
 - <a href="#liskov-substitution-principle">Liskov Substitution Principle</a> <br>
-- <a href="#interface-segregation-principle">Interface Segregation Principle</a>
+- <a href="#interface-segregation-principle">Interface Segregation Principle</a> <br>
+- <a href="#dependency-inversion-principle">Dependency Inversion Principle</a>
 
 
 ## Single Responsibility​ Principle
@@ -49,3 +50,16 @@ Sınıflara ihtiyaç duymadıkları imzaları arayüzlerle zorlayarak işlevsiz 
 ISP ihlali, doğrudan LSP ve SRP'ın da ihlaline sebebiyet vermektedir. <br>
 ISP sınıf tarafından desteklenmeyecek metotların lüzumsuz yere tanımlanmamasına karşı odaklanırken, LSP ise benzer şekilde bu tarz işlevsiz metotların barındırıldığı sınıflardan olan nesnelerin kendi aralarında olan değişimleri sürecinde patlama ya da boşa çıkma riskini ortadan kaldırmaya odaklanmaktadır. <br>
 SRP'da ise sınıfların değişmesi için yalnızca tek bir nedenin olması gerektiği söylenirken, ISP'de de hacmi büyük arayüzler yüzünden implemente edilmiş alakasız yöntemlerin değiştirilmesi gibi durumlarda ilgili sınıfta değişiklik gerekeceğinden, dolaylı yoldan sınıfların sadece tek bir değişim nedeni olmas desteklenmektedir.
+
+## Dependency Inversion Principle
+Dependency Inversion Principle, bir sınıfın herhangi bir türe olan bağımlılık durumuna karşı dikkatimizi çeken ve bu bağımlılığın mümkün mertebe tersine çevrilmesini öneren bir ilkedir. Bu prensip; geliştiricinin herhangi bir türe bağımlı olmadığını, bilakis türlerin yani nesnelerin geliştiriciye bağımlı olduğunu savunur.
+
+Projemizde kullandığımız bir mail servisimiz, eğer ki içerisinde direkt Gmail'i kullanıyorsa bu durumda Gmail'e bağımlı demektir! Böylece yapacağı tüm mail işlemlerini sadece Gmail ile yapabilecektir. Bu bağımlılık ihtiyaç gerektirdiği zaman diğer mail server'larını kullanma gereği hissedildiği zaman kodda değişikliğe sebep olacaktır.<br> Dependency Inversion prensibi gereği bağımlılıkları ters çevirecek bir yaklaşım sergilersek eğer artık Mail Service herhangi bir mail server'a bağımlı olmayacak, tüm mail server'ları karşılayabilecek "IMailServer" arayüzüyle çalışacaktır. Böylece Mail Service'de herhangi bir  mail server kullanılabilecektir. Yani artık mail server'lardan hangisi çağırılırsa o iş yapacaktır. Bu ise bize artık mail server'ların Mail Service'e bağlı olduğu anlamına gelecektir.
+
+<strong>Yazılımda gidişat tek bir davranışa bağımlı olmamalı, bilakis davranışlar sizin kararınıza bağımlı olmalı...</strong>
+
+Dependency Inversion prensibi; sınıflar arasındaki bağımlılığı soyutlamakta, uygulamanın ihtiyaca göre davranış değişikliğine istikrar getirmekte ve sistem açısından sürdürülebilirlik ve ölçeklenebilirliği sağlamaktadır. <br> <br>
+
+
+
+> [Kaynak: SOLID - Gençay Yıldız](https://www.youtube.com/playlist?list=PLjcUzHamn22kHr1e5EhaevYbJi0KGUEn0)
