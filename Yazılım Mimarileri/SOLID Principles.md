@@ -17,7 +17,8 @@ Loose Coupling, sınıfların veya modüllerin birbirlerine minimum düzeyde ba�
 <h3>SOLID Konu Başlıkları</h3>
 - <a href="#single-responsibility-principle">Single Responsibility​ Principle</a> <br>
 - <a href="#openclosed-principle">Open/Closed Principle</a> <br>
-- <a href="#liskov-substitution-principle">Liskov Substitution Principle</a>
+- <a href="#liskov-substitution-principle">Liskov Substitution Principle</a> <br>
+- <a href="#interface-segregation-principle">Interface Segregation Principle</a>
 
 
 ## Single Responsibility​ Principle
@@ -39,3 +40,12 @@ Eğer bir sınıf, herhangi bir interface yahut abstract class ile sözleşme ya
 Hiçbir alt sınıf uygulamış olduğu base class'ın metotlarını ihlal etmemelidir. Yani implement yahut override edilen hiçbir metot boş kalmamalı veya boş kalmasın diye Not Implemented Exception gibi hatalar döndürülmemelidir.
 
 Yani LPS bize şunu söylemektedir; <strong>Ortak referanstan türeyen nesneler herhangi bir davranış değişikliğine gerek duyulmaksızın birbirlerinin yerine geçebilmelidirler.</strong>
+
+## Interface Segregation Principle
+Interface Segregation Principle, <strong>bir nesnenin yapması gereken her farklı davranışların, odavranışlara odaklanmış özel interface'ler ile eşleşmesini öneren prensiptir.</strong> <br> Böylece ihtiyaç olan davranışları temsil eden interface'ler eşliğinde ilgili sınıflara kazandırabilir ve hiçbir sınıfın kullanmadığı bir imzayı zorla implement etmek zorunda kalmaksızın inşa sürecine devam edebiliriz. 
+
+Sınıflara ihtiyaç duymadıkları imzaları arayüzlerle zorlayarak işlevsiz metotlar eklemek ISP'ı ihlal etmek demektir. Yazılımdaki davranışları tek bir bütün olarak tutmaktansa, birbirlerinden bağımsız olacak şekilde birden çok parçaya bölmek ideal kod yapısını ortaya çıkarır.
+
+ISP ihlali, doğrudan LSP ve SRP'ın da ihlaline sebebiyet vermektedir. <br>
+ISP sınıf tarafından desteklenmeyecek metotların lüzumsuz yere tanımlanmamasına karşı odaklanırken, LSP ise benzer şekilde bu tarz işlevsiz metotların barındırıldığı sınıflardan olan nesnelerin kendi aralarında olan değişimleri sürecinde patlama ya da boşa çıkma riskini ortadan kaldırmaya odaklanmaktadır. <br>
+SRP'da ise sınıfların değişmesi için yalnızca tek bir nedenin olması gerektiği söylenirken, ISP'de de hacmi büyük arayüzler yüzünden implemente edilmiş alakasız yöntemlerin değiştirilmesi gibi durumlarda ilgili sınıfta değişiklik gerekeceğinden, dolaylı yoldan sınıfların sadece tek bir değişim nedeni olmas desteklenmektedir.
