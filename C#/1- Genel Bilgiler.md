@@ -132,3 +132,14 @@ public class MyClass
     }
 }
 ```
+
+## Değişkenler Arası Değer Atama
+### Deep Copy
+- Deep Copy neticesinde eldeki veri coğalır/kopyalanır.
+- Değer türlü değişkenler birbirlerine atanırken default oalrak deep copy geçerlidir. Yani veri otomatik olarak türetilir.
+
+
+### Shallow Copy
+- Değişkenler arası değer atamalarında değeri türetmek/çoğaltmak/klonlamak yerine var olanı birden fazla referansla işaretlemeye dayalı kopyalama yöntemidir.
+- Bellekte birden fazla referansın tek bir veriyi işaret etmesidir.
+- Neticede ilgili değer bir değişikliğe uğradığında tüm işaretleyen referanslara bu değişikliği yansıtacaktır.
