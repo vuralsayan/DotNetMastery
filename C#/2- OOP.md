@@ -102,3 +102,46 @@ class Program
     }
 }
 ```
+
+## Interface Nedir?
+Interface, yazılım geliştirme sürecinde önemli bir rol oynayan, belirli bir işlevselliği tanımlayan ancak uygulama detaylarını içermeyen bir yapıdır. Bir interface, uygulamaların çeşitli sınıflar arasında ortak bir iletişim veya anlaşma kurmasına olanak tanır.
+
+- **Soyut Metotlar İçerir:** Interface içinde tanımlanan metotlar soyut olup, herhangi bir uygulama (implementasyon) içermezler. Uygulama detayları, bu interface'i uygulayan sınıflar tarafından sağlanır.
+- **Çoklu Kalıtım:** Bir sınıf birden fazla interface'i uygulayabilir. Bu sayede sınıflar arasında çoklu kalıtım benzeri bir yapı oluşturulabilir.
+- **Erişim Belirleyicileri:** Interface içindeki tüm üyeler (metotlar ve özellikler) varsayılan olarak public'tir ve bu erişim belirleyicisi değiştirilemez.
+- **Özellikler:** Interface'ler, özellikler (properties) tanımlayabilir. Bu özellikler de soyuttur ve uygulama detayları interface'i uygulayan sınıflarda tanımlanır.
+- **Olaylar ve İndeksleyiciler:** Interface'ler ayrıca olaylar (events) ve indeksleyiciler (indexers) tanımlayabilir.
+
+ ### Interface'in Kullanım Alanları
+ - **Bağımlılık Azaltma(Decoupling):** Uygulama bileşenlerinin birbirine bağımlılığını azaltır, böylece kodun daha modüler olmasını sağlar.
+ - **Polimorfizim:** Farklı sınıfların aynı interface'i uygulayarak, aynı metot imzalarına sahip ancak farklı davranışlar sergilemesini sağalr.
+ - **Test Edilebilirlik:** Mock nesneleri ile birlikte kullanılabilen interface'ler, birim testlerinin yazılmasını kolaylaştırır. 
+
+ ```csharp
+ public interface IAnimal
+{
+    void MakeSound();
+    string Name { get; set; }
+}
+
+public class Dog : IAnimal
+{
+    public string Name { get; set; }
+
+    public void MakeSound()
+    {
+        Console.WriteLine("Woof!");
+    }
+}
+
+public class Cat : IAnimal
+{
+    public string Name { get; set; }
+
+    public void MakeSound()
+    {
+        Console.WriteLine("Meow!");
+    }
+}
+```
+> Bu örnekte, IAnimal isimli bir interface tanımlanmıştır. Dog ve Cat sınıfları, IAnimal interface'ini uygulamaktadır. Her iki sınıf da MakeSound metotlarını kendilerine özgü bir şekilde uygulamaktadır.
