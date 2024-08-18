@@ -143,3 +143,31 @@ public class MyClass
 - Değişkenler arası değer atamalarında değeri türetmek/çoğaltmak/klonlamak yerine var olanı birden fazla referansla işaretlemeye dayalı kopyalama yöntemidir.
 - Bellekte birden fazla referansın tek bir veriyi işaret etmesidir.
 - Neticede ilgili değer bir değişikliğe uğradığında tüm işaretleyen referanslara bu değişikliği yansıtacaktır.
+
+## Tür Dönüşümleri
+C# dilinde, veri tipleri arasında dönüşüm yapma gerekliliği sıkça karşılaşılan bir durumdur. Tür dönüşümleri, bir veri tipinin başka bir veri tipine dönüştürülmesini ifade eder. Bu dönüşümler bazen otomatik olarak (implicit) gerçekleşebilirken, bazen de explicit olarak yapılması gerekir.
+### Metinsel İfadelerin Diğer İfadelere Dönüştürülmesi
+Metinsel ifadeler (string), yazılımsal işlemler sırasında diğer veri tiplerine dönüştürülmek zorunda kalabilir. Örneğin, bir kullanıcıdan alınan veriler genellikle metin (string) olarak gelir, ancak bu verilerle matematiksel işlemler yapmak için uygun veri tiplerine dönüştürülmesi gerekir.
+### Parse Metodu
+`Parse` metodu, bir metinsel ifadenin belirtilen bir veri tipine dönüştürülmesi için kullanılır. Bu metod, dönüşümün başarılı olmaması durumunda bir `FormatException` fırlatır, bu yüzden Parse metodunu kullanırken girişin doğru formatta olduğundan emin olmak önemlidir.
+
+```csharp
+string numberString = "123";
+int number = int.Parse(numberString); // Dönüştürülen int değeri: 123
+```
+
+> `Parse` metodu, sadece başarılı bir şekilde dönüştürülebilecek veriler üzerinde kullanılmalıdır.
+
+### Convert Metodu
+`Convert` metodu, metinsel ifadeleri ve diğer veri tiplerini belirli veri tiplerine dönüştürmek için kullanılır. Convert metodu, Parse metoduna göre daha esnektir çünkü null değerler için bile işlem yapabilir ve bazı durumlarda tür dönüşümünde daha güvenlidir.
+
+```csharp
+string numberString = "456";
+int number = Convert.ToInt32(numberString); // Dönüştürülen int değeri: 456
+```
+> `Convert` metodu, null bir değeri sıfıra dönüştürür (örneğin Convert.ToInt32(null) döner 0).
+
+```csharp
+string nullString = null;
+int number = Convert.ToInt32(nullString); // Dönüştürülen int değeri: 0
+```
